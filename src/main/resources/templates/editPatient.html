@@ -11,7 +11,7 @@ layout:decorate="template1">
 <div layout:fragment="content1">
     <div class="col-md-6 offset-3">
 
-        <form method="post" th:action="@{save(page=${page} , keyword=${keyword})}">
+        <form method="post" th:action="@{/admin/save(page=${page} , keyword=${keyword})}">
             <div >
                 <label>ID</label>
                 <input  class="form-control" type="text" name="id" th:value="${patient.id}">
@@ -37,7 +37,7 @@ layout:decorate="template1">
                 <input class="form-control" type="text" name="score" th:value="${patient.score}">
                 <span class="text-danger" th:errors="${patient.score}"/>
             </div>
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" class="btn btn-primary">save</button>
         </form>
 
 
