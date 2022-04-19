@@ -41,9 +41,11 @@ auth.jdbcAuthentication()
     protected void configure(HttpSecurity http)throws Exception{
         http.formLogin();
         http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests()
+                .antMatchers("/webjars/**").permitAll();
         http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
         http.authorizeRequests().antMatchers("/user/**").hasRole("USER");
-        http.authorizeHttpRequests().anyRequest().authenticated();
+        http.authorizeRequests().anyRequest().authenticated();
         http.exceptionHandling().accessDeniedPage("/403");
     }
     @Bean
