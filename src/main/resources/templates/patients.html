@@ -46,7 +46,7 @@ layout:decorate="template1">
                     <td th:text="${p.dateNaissance}"> </td>
                     <td th:text="${p.malade}"> </td>
                     <td th:text="${p.score}"> </td>
-                    <td sec:authorize="hasRole('ADMIN')">
+                    <td sec:authorize="hasAuthority('ADMIN')">
                         <a onclick="return confirm('Etes vous sure ?') " class="btn btn-danger" th:href="@{/admin/delete(id=${p.id} , keyword=${keyword} , page =${currentPage})}" > Delete </a>
                     </td>
                     <td sec:authorize="hasRole('ADMIN')">
