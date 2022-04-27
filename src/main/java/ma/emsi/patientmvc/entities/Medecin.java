@@ -2,7 +2,6 @@ package ma.emsi.patientmvc.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,9 +10,10 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
+
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Patient {
+public class Medecin {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id ;
     private String sexe;
@@ -23,7 +23,7 @@ public class Patient {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance ;
-    private boolean malade ;
-    @DecimalMin("0")
-    private int score ;
+    String specialite;
+
+
 }
