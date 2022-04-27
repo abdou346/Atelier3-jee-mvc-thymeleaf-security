@@ -255,3 +255,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 }
 ```
+## Partie Amelioration :
+### Creation Entite Medecin avec son formulaire edit et ajout medecin
+![title](img/Medecin.png)
+![title](img/Newmedecin.png)
+![title](img/editmedecin.png)
+### Affichage de Medecin
+![title](img/affichermedecin.png)
+### Ajout attibut sexe et cin pour patient:
+![title](img/Patient.png)
+![title](img/affPatient.png)
+### Recherche multi-critere pour patient et medecin:
+![title](img/RecherchemultiPatient.png)
+![title](img/recherchemultimedecin.png)
+### Amelioration Home:
+![title](img/Home.png)
