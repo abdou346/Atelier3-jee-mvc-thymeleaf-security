@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Medecin</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+
+        <form method="post" th:action="@{/admin/Medecin/save}">
+            <div >
+                <label>Nom</label>
+                <input class="form-control" type="text" name="nom" th:value="${medecin.nom}">
+                <span  class="text-danger" th:errors="${medecin.nom}"/>
+            </div>
+            <div >
+                <label>Date de naissance</label>
+                <input class="form-control" type="date" name="dateNaissance" th:value="${medecin.dateNaissance}">
+                <span class="text-danger" th:errors="${medecin.dateNaissance}"/>
+            </div>
+            <div >
+                <label>Specialite</label>
+                <input class="form-control" type="text" name="nom" th:value="${medecin.specialite}">
+                <span  class="text-danger" th:errors="${medecin.specialite}"/>
+            </div>
+
+            <select name="sexe" id="sexe">
+                <option value="">Select gender from the list</option>
+                <option value="M" th:selected="${medecin.sexe eq 'M'}">Male</option>
+                <option value="F" th:selected="${medecin.sexe eq 'F'}">Female</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">save</button>
+        </form>
+
+
+    </div>
+
+
+</div>
+</body>
+</html>

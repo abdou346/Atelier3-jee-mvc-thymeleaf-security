@@ -26,6 +26,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                     <li ><a class="dropdown-item" th:href="@{/user/index}">Chercher  </a></li>
 
                 </ul>
+            </li><li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Medecin</a>
+                <ul class="dropdown-menu">
+                    <li sec:authorize="hasAuthority('ADMIN')"><a class="dropdown-item" th:href="@{/admin/formMedecin}">Nouveau  </a></li>
+                    <li ><a class="dropdown-item" th:href="@{/user/index/Medecin}">Chercher  </a></li>
+
+                </ul>
             </li>
         </ul>
         <ul class="navbar-nav">

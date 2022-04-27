@@ -1,7 +1,9 @@
 package ma.emsi.patientmvc;
 
 
+import ma.emsi.patientmvc.entities.Medecin;
 import ma.emsi.patientmvc.entities.Patient;
+import ma.emsi.patientmvc.repositories.MedecinRepository;
 import ma.emsi.patientmvc.repositories.PatientRepository;
 import ma.emsi.patientmvc.sec.service.SecurityService;
 import org.springframework.boot.CommandLineRunner;
@@ -24,21 +26,35 @@ public class PatientMvcApplication {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    //@Bean
-    CommandLineRunner commandLineRunner(PatientRepository patientRepository) {
+    @Bean
+    CommandLineRunner commandLineRunnerpatient(PatientRepository patientRepository) {
         return args -> {
-            patientRepository.save(new Patient(null, "abdou ", new Date(), false, 185));
-            patientRepository.save(new Patient(null, "Hamza ", new Date(), true, 148));
-            patientRepository.save(new Patient(null, "farouk ", new Date(), false, 966));
-            patientRepository.save(new Patient(null, "Yassine ", new Date(), true, 164));
+            patientRepository.save(new Patient(null, "M","abdou ", new Date(), false, 185,"BE871664"));
+            patientRepository.save(new Patient(null,"M", "Hamza ", new Date(), true, 148,"AW871664"));
+            patientRepository.save(new Patient(null, "F","fatima ", new Date(), false, 966,"BE871964"));
+            patientRepository.save(new Patient(null, "F","Manal", new Date(), true, 164,"BE071664"));
             patientRepository.findAll().forEach(p ->
             {
                 System.out.println(p.getNom());
             });
         };
     }
+  @Bean
+    CommandLineRunner commandLineRunnerMedecin(MedecinRepository medecinRepository) {
+        return args -> {
+            medecinRepository.save(new Medecin(null, "M","Mehdi", new Date(), "chirurgien"));
+            medecinRepository.save(new Medecin(null, "M","Farouk ", new Date(), "Dentiste"));
+            medecinRepository.save(new Medecin(null, "F","Youssra ", new Date(), "Cardio"));
+            medecinRepository.save(new Medecin(null, "F","Ayaa", new Date(), "Oncologue"));
 
-    //@Bean
+            medecinRepository.findAll().forEach(p ->
+            {
+                System.out.println(p.getNom());
+            });
+        };
+    }
+
+   //@Bean
     CommandLineRunner saveUsers(SecurityService securityService) {
         return args -> {
             securityService.saveNewUser("abdelhadi elkhattabi","1234","1234");
@@ -58,3 +74,4 @@ public class PatientMvcApplication {
 
 
 }
+

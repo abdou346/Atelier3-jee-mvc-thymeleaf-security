@@ -14,11 +14,12 @@ layout:decorate="template1">
 
 <div class="container mt-2">
     <div class="card">
-        <div class="card-header">Liste des patients </div>
+        <div class="card-header">Liste des Medecins </div>
         <div class="card-body">
-<form method="get" th:action="@{/user/index}">
+<form method="get" th:action="@{/user/index/Medecin}">
     <label> keyword</label>
     <input type="text" name="keyword" th:value="${keyword}">
+
     <button type="submit" class="btn btn-primary">Chercher </button>
 
 </form>
@@ -37,32 +38,25 @@ layout:decorate="template1">
                     Date de naissance
                 </th>
                 <th>
-                    Malade
-                </th>
-                <th>
-                    Score
-                </th>
-                <th>
-                    Cin
+                    Specialite
                 </th>
 
                 </thead>
                 <tbody>
-                <tr th:each="p:${ListPatients}">
+                <tr th:each="p:${ListMedecin}">
                     <td th:text="${p.id}"> </td>
                     <td th:text="${p.nom}"> </td>
 
                     <td th:text="${p.sexe}"> </td>
 
                     <td th:text="${p.dateNaissance}"> </td>
-                    <td th:text="${p.malade}"> </td>
-                    <td th:text="${p.score}"> </td>
-                    <td th:text="${p.cin}"> </td>
+                    <td th:text="${p.specialite}"> </td>
+
                     <td sec:authorize="hasAuthority('ADMIN')">
-                        <a onclick="return confirm('Etes vous sure ?') " class="btn btn-danger" th:href="@{/admin/delete(id=${p.id} , keyword=${keyword} , page =${currentPage})}" > Delete </a>
+                        <a onclick="return confirm('Etes vous sure ?') " class="btn btn-danger" th:href="@{/admin/delete/Medecin(id=${p.id} , keyword=${keyword} , page =${currentPage})}" > Delete </a>
                     </td>
                     <td sec:authorize="hasAuthority('ADMIN')">
-                        <a  class="btn btn-success" th:href="@{/admin/editPatient(id=${p.id} , keyword=${keyword} , page =${currentPage})}" > Edit </a>
+                        <a  class="btn btn-success" th:href="@{/admin/editMedecin(id=${p.id} , keyword=${keyword} , page =${currentPage})}" > Edit </a>
                     </td>
                 </tr>
                 </tbody>
