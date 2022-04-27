@@ -6,6 +6,7 @@ import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
@@ -26,4 +27,5 @@ public class Patient {
     private boolean malade ;
     @DecimalMin("0")
     private int score ;
+    private String cin;
 }

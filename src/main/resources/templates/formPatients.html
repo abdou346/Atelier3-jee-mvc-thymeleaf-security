@@ -37,6 +37,11 @@ layout:decorate="template1">
                 <input class="form-control" type="text" name="score" th:value="${patient.score}">
                 <span class="text-danger" th:errors="${patient.score}"/>
             </div>
+            <div >
+                <label>Nom</label>
+                <input class="form-control" type="text" name="nom" th:value="${patient.nom}">
+                <span  class="text-danger" th:errors="${patient.cin}"/>
+            </div>
             <button type="submit" class="btn btn-primary">save</button>
         </form>
 

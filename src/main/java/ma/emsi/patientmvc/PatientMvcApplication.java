@@ -29,10 +29,10 @@ public class PatientMvcApplication {
     @Bean
     CommandLineRunner commandLineRunnerpatient(PatientRepository patientRepository) {
         return args -> {
-            patientRepository.save(new Patient(null, "M","abdou ", new Date(), false, 185));
-            patientRepository.save(new Patient(null,"M", "Hamza ", new Date(), true, 148));
-            patientRepository.save(new Patient(null, "F","fatima ", new Date(), false, 966));
-            patientRepository.save(new Patient(null, "F","Manal", new Date(), true, 164));
+            patientRepository.save(new Patient(null, "M","abdou ", new Date(), false, 185,"BE871664"));
+            patientRepository.save(new Patient(null,"M", "Hamza ", new Date(), true, 148,"AW871664"));
+            patientRepository.save(new Patient(null, "F","fatima ", new Date(), false, 966,"BE871964"));
+            patientRepository.save(new Patient(null, "F","Manal", new Date(), true, 164,"BE071664"));
             patientRepository.findAll().forEach(p ->
             {
                 System.out.println(p.getNom());
@@ -54,7 +54,7 @@ public class PatientMvcApplication {
         };
     }
 
-   @Bean
+   //@Bean
     CommandLineRunner saveUsers(SecurityService securityService) {
         return args -> {
             securityService.saveNewUser("abdelhadi elkhattabi","1234","1234");

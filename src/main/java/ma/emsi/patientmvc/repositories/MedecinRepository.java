@@ -8,11 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MedecinRepository extends JpaRepository<Medecin,Long> {
 
-    Page<Medecin> findByNomContains(String n, Pageable page);
+    //Page<Medecin> findByNomContains(String n, Pageable page);
     Page<Medecin> findBySexe(String n,Pageable page);
-
-
-
-
-
+    Page<Medecin>findByNomContainsOrSpecialiteContains(String n,String p , Pageable page);
 }

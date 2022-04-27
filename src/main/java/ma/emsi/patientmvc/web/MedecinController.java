@@ -39,7 +39,7 @@ public  String medecins(Model model,
 
         }
         else {
-            medecins=medecinRepository.findByNomContains(keyword,PageRequest.of(page , size));
+            medecins=medecinRepository.findByNomContainsOrSpecialiteContains(keyword,keyword,PageRequest.of(page , size));
 
         }
 

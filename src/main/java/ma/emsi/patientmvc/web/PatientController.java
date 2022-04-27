@@ -38,9 +38,9 @@ public  String patients(Model model,
     Optional<Patient> result ;
     if(!keyword.equals("") && isInteger(keyword) ) {
         score=Integer.valueOf(keyword) ;
-        l=Long.parseLong(keyword);
 
-        patients=patientRepository.findByIdOrScore(score,l,PageRequest.of(page , size));
+
+        patients=patientRepository.findByScore(score,PageRequest.of(page , size));
     }
     else if(keyword.length()==1){
       patients=patientRepository.findBySexe(keyword,PageRequest.of(page , size));
@@ -48,8 +48,7 @@ public  String patients(Model model,
 
     }
     else {
-        patients=patientRepository.findByNomContains(keyword,PageRequest.of(page , size));
-
+        patients=patientRepository.findByNomContainsOrCinContains(keyword,keyword,PageRequest.of(page , size));
     }
 
     model.addAttribute("ListPatients",patients.getContent())  ;
